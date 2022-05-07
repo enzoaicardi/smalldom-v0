@@ -1,18 +1,18 @@
 var before = `header.header
 
-    div.header-left
+  div.header-left
 
-        img!.logo [src](./doc/logo.svg)
-        h1 "smallDom.js"
+    img!.logo [src](./doc/logo.svg)
+    h1 "smallDom.js"
 
-    div.header-right
+  div.header-right
 
-        a [data-core-button] [href](./doc/) 
-            "Documentation"
+    a [data-core-button] [href](./doc/) 
+      "Documentation"
 
-        a [data-core-icon]
-            svg.git
-                use [xlink:href](#icon-github)`;
+    a [data-core-icon]
+      svg.git
+        use [xlink:href](#icon-github)`;
 
 var array = before.split('\n');
 var lines = '';
@@ -45,17 +45,33 @@ function addLine(){
         setTimeout(function() {
 
             if(j >= line.length){
-                currentLine.innerHTML = highlightCode(escapeHTML(currentLine.textContent) || ' ', 'sdom');
-                updateHTML();
-                addLine();
+
+                setTimeout(function() {
+
+                  updateHTML();
+                  
+                  if(line === ' '){
+                    addLine();
+                    return;
+                  }
+                  
+                  currentLine.innerHTML = highlightCode(escapeHTML(currentLine.textContent) || ' ', 'sdom');
+  
+                  setTimeout(function() {
+                    addLine();
+                  }, 500);
+
+                }, 100);
+
                 return;
+                
             }
 
             currentLine.textContent += line[j];
             j++;
 
             addChar();
-        }, 70);
+        }, 50);
     }
 
     // update HTML part

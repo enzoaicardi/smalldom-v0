@@ -1,18 +1,20 @@
 
-section [title](Commencer) [char](#)
+section [title](Les concepts)
 
-    a "Installation" [page](index)
+    a "C'est quoi ?" [page](index)
 
-    a "Configuration" [page](config)
+    a "Les noeuds" [page](intro/nodes)
 
-    a "Prérequis" [page](prerequis)
+    a "Les attributs" [page](intro/attributes)
 
-section [title](Rédiger) [char](T)
+    a "Les fonctions" [page](intro/functions)
 
-    a "Fichiers" [page](fichiers)
+    a "Les commentaires" [page](intro/comments)
 
-    a "Navigation" [page](nav)
+    a "L'échappement" [page](intro/escape)
 
-    a "Structure de page" [page](page)
+section [title](Installation)
 
-section [title](Fin)
+    a "Librairie" [page](install/sdom)
+
+    a "Extension VSCode" [page](install/extension)

@@ -1,0 +1,102 @@
+h1 "Les noeuds"
+
+p {Dans cette section nous allons détailler les différents concepts du langage} +q "sdom" -{afin de vous permettre d'utilisiser pleinement la langue.}
+
+h3 "Les éléments HTML"
+
+p {Pour créer un élément} +q "html" -{il suffit de renseigner le nom de la balise brut.}
+
+code [title](Création d'une balise HTML) [language](sdom)
+{# Nous créons un <header></header>
+header}
+
+h3 "Le texte"
+
+p {Pour ajouter du texte il suffit d'utilliser les} +q {""} -{ou les} +q "{}"
+
+code [title](Ajout de texte) [language](sdom)
+{"Ceci représente du texte en ligne"
+\{Ceci représente du texte en ligne ou multiligne\}}
+
+h3 "Les fonctions"
+
+code [title](Utilisation d'une fonction) [language](sdom)
+{functionName(argument)}
+
+h2 "L'indentation des noeuds"
+
+p {Chaque élément ou} +q "noeud" -{possède ce qu'on appellera un niveau, ce niveau dépend de plusieurs facteurs, le premier que nous allons expérimenter ici s'appel l'indentation.}
+
+h3 "Indentation en colonne"
+
+p {L'indentation correspond au nombre d'espaces avant le premier caractère de la ligne, par exemple on peut calculer comme suit :}
+
+code [title](Niveau d'indentation) [language](sdom)
+{# indentation de 0 espaces
+element-1
+
+    # indentation de 4 espaces
+    element-2
+
+      # indentation de 6 espaces
+      element-3}
+
+p {Le niveau d'un noeud est équivalent à son indentation, cela veut donc déjà dire deux choses :}
+
+ul 
+    li "Deux noeuds au même niveau sont des noeuds voisins"
+    li "Un noeud de niveau suppérieur au noeud précédent est donc son enfant"
+
+code [title](Elements voisins et enfants) [language](sdom)
+{header
+nav
+# <header></header> <nav></nav>
+
+header
+    nav
+# <header> <nav></nav> </header>
+
+    header
+nav
+# <header></header> <nav></nav>}
+
+p {Il existe une subtilité pour les noeuds de texte, ces derniers sont toujours des enfants du noeud précédent si leur niveau est équivalent ou suppérieur à cet élément}
+
+code [title](L'indentation du texte) [language](sdom)
+{div
+nav
+"navigation"
+# <div></div> <nav>navigation</nav>
+
+div
+    nav
+        "navigation"
+# <div> <nav>navigation</nav> </div>
+
+div
+    nav
+"navigation"
+# <div> <nav></nav> navigation </div>}
+
+h3 "Indentation en ligne"
+
+p {Pour commencer, comme le niveau d'un élément ne dépend que de son indentation, il est tout à fait possible d'écrire plusieurs éléments voisins sur une même ligne}
+
+code [title](Elements voisins en ligne) [language](sdom)
+{div nav "navigation" div
+# <div></div> <nav>navigation</nav> <div></div>}
+
+p {Pour augmenter ou diminuer le niveau d'un noeud sur la même ligne il est necessaire d'utiliser les opérateurs} +q "+ et -"
+
+code [title](Elements enfants en ligne) [language](sdom)
+{header +nav "navigation" div
+# <header> <nav>navigation</nav> <div></div> </header>
+
+header +nav "navigation" -div
+# <header> <nav>navigation</nav> </header> <div></div>
+
+header +nav -"navigation"
+# <header> <nav>navigation</nav> navigation </header>
+
+p "ceci est un " +a \{lien\} -" dans un paragraphe"
+# <p>ceci est un <a>lien</a> dans un paragraphe</p>}

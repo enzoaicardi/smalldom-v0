@@ -1,0 +1,97 @@
+h1 "Les fonctions"
+
+p {smallDom embarque un certain nombre de fonctions prédéfinies que nous allons détailler dans cette section.}
+
+p {Mais avant toute chose, il faut savoir qu'une fonction est un} +q "noeud" -{comme décrit dans } +a "cette section" [page](intro/nodes) -{ et possède donc les même propriétés d'indentation.}
+
+p {Cela veut dire qu'une fonction peut casser un noeud, comme dans l'exemple suivant :}
+
+code [title](Node breaker) [language](sdom)
+{header
+    nav
+        div
+break()
+        div
+# <header> <nav> <div></div> </nav> </header> <div></div>}
+
+p {La fonction} +q "break()" -{ayant la même indentation que header, elle agit comme un élément voisin, et coupe donc la propagation des éléments enfants de header. Mais comme une fonction ne peut pas avoir d'enfant, div est donc un élément voisin de la fonction} +q "break()"
+
+p {Ainsi dans cet exemple div devient un élément voisin de header. Il s'agit d'un comportement normal qu'il est impératif de connaitre et qui peut d'avérer particulièrement utile pour aérer votre code.}
+
+code [title](Node breaker) [language](sdom)
+{header
+    nav
+        div
+    break()
+        div
+# <header> <nav> <div></div> </nav> <div></div> </header>}
+
+h3 "break()"
+
+p {Comme nous l'avons vu précédemment, la fonction} +q "break()" -{n'a qu'une fonction de } +i "node breaker."
+
+h3 "template(name)"
+
+p {La fonction} +q "template(name)" -{permet d'enregistrer le noeud suivant en tant que template, ce template pourra ensuite être réutilisé par le biais d'une autre fonction.}
+
+code [title](Créer un template) [language](sdom)
+{header
+    template(button)
+    button.my-special-button "special button"
+
+# <header> 
+#   <button class="my-special-button">special button</button>
+# </header>}
+
+h3 "include(templateName)"
+
+p {La fonction} +q "include(templateName)" -{permet d'ajouter un noeud du même niveau que la fonction include. Ce noeud correspond au template dont le nom est celui rentré comme argument} +q "templateName"
+
+code [title](Inclure un template) [language](sdom)
+{footer
+    include(button)
+
+# <footer> 
+#   <button class="my-special-button">special button</button>
+# </footer>}
+
+h3 "clone(int, int)"
+
+p {La fonction} +q "clone(int, int)" -{agit sur les} +q "x = 1" -{noeuds suivants, elle permet de cloner ces noeuds à la suite les uns des autres afin d'éviter les répétitions de code.}
+
+p {Le premier argument doit être un nombre entier qui représente le nombre de fois que les noeuds doivent êtres clonés, tandis que le second (optionnel) représente le nombre de noeuds voisins à la fonction qui doivent faire partie du clonage.}
+
+code [title](Clone de texte) [language](sdom)
+{div
+    clone(2)
+    "ceci est un texte en 3 fois"
+    
+# <div> "ceci est un texte en 3 fois"
+# "ceci est un texte en 3 fois"
+# "ceci est un texte en 3 fois" </div>}
+
+
+code [title](Clone d'élément) [language](sdom)
+{ul
+    clone(2)
+    li "ceci est un texte en 3 fois"
+    
+# <ul> 
+#   <li> "ceci est un texte en 3 fois" </li>
+#   <li> "ceci est un texte en 3 fois" </li>
+#   <li> "ceci est un texte en 3 fois" </li>
+# </ul>}
+
+code [title](Clone de plusieurs éléments) [language](sdom)
+{ul
+    clone(1, 2)
+    li.one
+    li.two
+    
+# <ul> 
+#   <li class="one"></li>
+#   <li class="two"></li>
+
+#   <li class="one"></li>
+#   <li class="two"></li>
+# </ul>}

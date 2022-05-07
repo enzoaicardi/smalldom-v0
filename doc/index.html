@@ -12,9 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Change the title -->
-    <title> | Nakke, the documentation std</title>
+    <title> | smallDom documentation</title>
 
-    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" href="./assets/read-only/workspace.css">
     <link rel="stylesheet" href="./assets/workclass.css">
     <link rel="stylesheet" href="./assets/components.css">
@@ -25,11 +25,9 @@
     <style>
         body{
             --change-colors-here: 0;
-            /** Main colors var - according to UI/UX standards
-                --color-60p (this is the 60% main color)
-                --color-30p (this is the 30% main color)
-                --color-10p (this is the 10% main color)
-            
+            --color-60p: #F6C057;
+            --color-30p: var(--color-60p);
+            /**
             ** Grey colors
                 --hue (the hue position in css hsl())
                 --saturation (the saturation percentage in css hsl())
@@ -54,8 +52,9 @@
         header.doc-header.mobile.mobile-flex [translate](no)
             div.doc-header-left
                 img!.doc-site-logo [src](./logo.svg)
-                # Change header title here (1/2)
-                p.doc-site-title "Nakke."
+                template(site_title)
+                # Change header title here
+                p.doc-site-title "smallDom"
                 
             div.doc-header-right.doc-color-mode
                 span.material-icons.v "light_mode"
@@ -67,10 +66,9 @@
             # Sidebar navigation
             section.doc-sidebar
 
-                header.desktop [translate](no)
+                header.desktop.doc-header-left [translate](no)
                     img!.doc-site-logo [src](./logo.svg)
-                    # Change header title here (2/2)
-                    p.doc-site-title "Nakke."
+                    include(site_title)
 
                 nav.content.ns
                     
@@ -92,7 +90,7 @@
             # Summary navigation
             section.doc-summary
 
-                header.doc-color-mode.desktop [translate](no)
+                header.doc-color-mode.desktop.doc-header-right [translate](no)
                     span.material-icons.v "light_mode"
                     span.material-icons "dark_mode"
 

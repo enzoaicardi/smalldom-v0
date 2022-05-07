@@ -1,0 +1,95 @@
+h1 "Installation"
+
+p {Pour utiliser smallDom commencer par télécharger le fichier minifié } +a "sdom.js" [href](../lib/sdom.js) [download]
+
+h2 "Les fonctions"
+
+h4 "Transpilation"
+
+p {smallDom fournit plusieurs fonctions qui vous donnent accès à chaque étape de la tranpilation, ce sont les suivantes :}
+
+ul
+    li +q "smallDomTokeniser(code)" -"convertit le code sdom en tableau de jetons"
+    li +q "smallDomParser(tokens)" -"convertit un tableau de jetons en AST"
+    li +q "smallDomGenerator(ast, options)" -"convertit un ast en code HTML"
+
+h4 "Fonctions raccourcies"
+
+p {Il est cependant dans la majorité des cas plus utile d'utiliser les fonctions raccourcies suivantes :}
+
+ul
+    li +q "smallDomTranspile(code, options)" -"convertit le code sdom en code HTML"
+    li +q "smallDomReplace(selector, options)" -"convertit le code sdom en code HTML"
+    ol
+        li +q "selector" -"correspond à" +q "querySelectorAll(selector)" q"'all'" -"est équivalent à" +q "'small-dom'";
+
+p {Les differentes options disponibles sont :}
+
+ul
+    li "mode : "
+    ol
+        li "inline - rend le code HTML en une seule ligne"
+        li "wrap - rend le code HTML avec des sauts de ligne reguliers entre chaque noeud"
+        li "pre - rend le code HTML avec les mêmes sauts de ligne que le code sdom"
+        li "pre-wrap - rend le code HTML avec des sauts de ligne réguliers entre les noeuds séparés par un saut de ligne"
+
+    li "breaks : le nombre de sauts de ligne à ajouter entre les blocs (n'a pas d'effet pour pre et inline)"
+
+code [title](options) [language](js)
+{var options = \{
+    mode: 'inline' | 'wrap' | 'pre' | 'pre-wrap',
+    breaks: int
+\}}
+
+h4 "Fonctions annexes"
+
+p {Vous pourrez aussi utiliser d'autres fonctions annexes :}
+
+ul
+    li +q "domCopy(selector)" -"copie outerHTML d'un element ou de tout le document (utile pour effectuer un copier coller sur le document final par exemple)"
+    li +q "escapeHTML(str)" -"echape les caractères HTML d'une chaine"
+
+h2 "Utilisation"
+
+h3 "Utiliser dans un document HTML"
+
+p {Pour utiliser smallDom dans un document HTML il suffit de l'inclure en tant que script (attention l'ordre peut être important selon votre application)}
+
+code [title](Ajout de sdom.js) [language](html)
+{<body>
+    <!-- code before -->
+    <script src="./sdom.js"></script>    
+</body>}
+
+p {Vous pouvez maintenant écrire votre code sdom entre les balises} +q "<small-dom></small-dom>" -{et le convertir en utilisant la fonction} +q "smallDomReplace()"
+
+code [title](small-dom) [language](html)
+{<body>
+    <small-dom>
+        <!-- sdom code here ! -->
+    </small-dom>
+
+    <script src="./sdom.js"></script>    
+    <script>
+        smallDomReplace();
+    </script>    
+</body>}
+
+p {Par défaut (sans arguments) la fonction} +q "smallDomReplace" -{replacera tout les éléments} +q "<small-dom>" -{en transpilant le code contenu à l'intérieur.}
+
+h3 "Utiliser dans un fichier javascript"
+
+p {Pour utiliser smallDom dans un fichier javascript il suffit de l'inclure dans votre document HTML ou de l'importer depuis votre back-end.}
+
+p {ensuite il ne vous reste plus qu'à utiliser les différentes fonctions que vous pourrez trouver } +a "ici" [anchor](Les fonctions) -{.}
+
+p {Pour importer le code grace à l'API} +q "fetch" -{vous pouvez procéder comme suit :}
+
+code [title](fetch) [language](js)
+"fetch(<.sdom file url>)
+.then(function(response){return response.text();})
+.then(function(code){
+    var HTML = smallDomTranspile(code, {options...});
+    // do something
+});"
+

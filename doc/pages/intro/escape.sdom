@@ -1,0 +1,23 @@
+h1 "L'échappement"
+
+p {L'échappement est une notion essentielle et très simple à comprendre pour tout langage de programmation. Il s'agit d'un} +q "\\" -{placé devant le caractère à échapper.}
+
+p {Echapper un caractère lui enlève ses propriétés. Par exemple si vous voulez écrire du texte entre guillemets} +q {"..."} -{mais que vous avez besoin de ces même guillemets à l'intérieur, il vous faudra les échapper}
+
+code [title](Echappement de texte) [language](sdom)
+{# sans échappement
+"ces lignes représentent un "texte" sans échappement"
+
+# avec échappement
+"ces lignes représentent un \\"texte\\" avec échappement"}
+
+p {L'échappement est disponible pour :}
+
+ul 
+    li "Les textes"
+    li "Les valeurs"
+
+code [title](Echappements) [language](sdom)
+{" \\"texte\\" avec echappement "
+\{ texte avec \\\{echappement\\\} \}
+(valeur avec \\(echappement\\))}

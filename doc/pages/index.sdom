@@ -1,37 +1,15 @@
-h1 "Nakke c'est quoi ?"
+h1 "smallDom c'est quoi ?"
 
-p {Nakke est un template de documentation créé par Enzo Aicardi, qui permet la création rapide d'une documentation
-simple a rédiger, facile d'usage et adaptative}
+p {smallDom est un transpileur, c'est à dire un outil qui transforme un code de haut niveau comme} +q "sdom" -{en un autre code comme} +q "html"
 
-p {L'objectif est de se concentrer sur l'essentiel, c'est à dire la rédaction de la documentation}
+i {Un compilateur source à source, transpileur ou transcompilateur est un type de compilateur qui prend le code source d'un langage de programmation et le compile dans un autre langage de programmation. Un compilateur source-à-source opère sur deux langages avec approximativement le même niveau d'abstraction, alors qu'un compilateur traditionnel compile un langage de haut niveau vers un langage de bas niveau.}
 
-h2 "Installation"
+h2 "Quelle utilité ?"
 
-p {Installer Nakke est relativement simple, il vous suffit de copier l'ensemble des fichiers du dépot }
-    a [href](https://github.com/enzoaicardi/nakke) {GitHub} -{ et de les ajouter dans votre dossier} +q{documentation}
-{de votre site web.}
+p {L'utilité d'un tel transipleur est d'écrire du code beaucoup plus rapidement et de le rendre plus lisible, de cette manière il devient plus simple de maintenir son code à jour en évitant les erreurs.}
 
-p {La seule page qui effectue tout le rendu de la documentation est la page} +q {index.html} 
+p {L'autre utilité est d'obtenir un code plus léger puisque lors de la compilation le code html est vidé de tout ses commentaires, tabulations et retours chariot.}
 
-code [title](Exemple de structure) [language](folder)
-{[] assets
-index.html (website index)
+h2 "Les concepts"
 
-[] documentation_folder_name (nakke here)
-    [] assets
-    index.html (nakke index)
-    ...}
-
-p {Vous pouvez ensuite vérifier que tout fonctionne en vous rendant à l'adresse de votre nouvelle documentation, 
-si vous voyez cette même page s'afficher c'est que l'installation s'est passée correctement.}
-
-h3 "Tester en local"
-
-p {Afin d'éviter les erreur de cross-origin que vous rencontrerez si vous testez la documentation
-en local sans serveur local, nous vous conseillons d'utiliser l'extension live-server sur vscode.}
-
-h3 "Mettre a jour"
-
-p {Pour une raison quelconque, si vous souhaitez mettre à jour la documentation Nakke, il suffit
-de télécharger la nouvelle version de} +q "nakke.js"
-
+p +q "sdom" -{est un langage avec une syntaxe simple à apprendre et à comprendre, il suffit de se familiariser avec les différents concepts de la langue pour la maitriser rapidement.}

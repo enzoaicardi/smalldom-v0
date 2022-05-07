@@ -1,0 +1,15 @@
+h1 "Coloration syntaxique"
+
+p {Si vous utilisez VSCode vous pouvez obtenir la coloration syntaxique pour votre code} +q "sdom" -{entre les balises} +q "<small-dom>" -{et dans les fichiers en} +q ".sdom"
+
+h3 "Téléchargement"
+
+p {Pour cela il vous faudra télécharger l'extension de coloration syntaxique en suivant ce lien :}
+
+a "Télécharger" [href](../lib/small-dom.vsix) [download]
+
+h3 "Installation"
+
+p {Une fois téléchargé, ouvrez VSCode à l'emplacement du fichier} +q ".vsix" -{depuis VSCode effectuez un clic droit dessus et choisisser : "Installer le VSIX de l'extension"}
+
+p {Vous avez à présent terminé, vous pouvez coder !}

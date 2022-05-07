@@ -5,7 +5,8 @@
 */
 
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
+
 
 body{
 
@@ -58,7 +59,7 @@ body{
 
     /* font (p, h, ...) */
     --font-default:  'Poppins', Arial, Helvetica, sans-serif;
-    --font-mono:     monospace;
+    --font-mono:     'JetBrains Mono', monospace;
     
     --font-main:     var(--font-default);
     --font-title:    var(--font-default);
@@ -120,6 +121,20 @@ body{
 
     font-family: var(--font-default);
 
+}
+
+@supports not (color: hsl(0, calc(0% + 100%), 100%)) {
+    body{
+        --color-00: hsla(var(--hue), var(--saturation), 0%,   var(--opacity));
+        --color-01: hsla(var(--hue), var(--saturation), 10%,  var(--opacity));
+        --color-02: hsla(var(--hue), var(--saturation), 20%,  var(--opacity));
+        --color-03: hsla(var(--hue), var(--saturation), 30%,  var(--opacity));
+        --color-05: hsla(var(--hue), var(--saturation), 50%,  var(--opacity));
+        --color-07: hsla(var(--hue), var(--saturation), 70%,  var(--opacity));
+        --color-08: hsla(var(--hue), var(--saturation), 80%,  var(--opacity));
+        --color-09: hsla(var(--hue), var(--saturation), 90%,  var(--opacity));
+        --color-1:  hsla(var(--hue), var(--saturation), 100%, var(--opacity));
+    }
 }
 
 body.dark_mode{

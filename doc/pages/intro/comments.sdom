@@ -1,0 +1,12 @@
+h1 "Les commentaires"
+
+p {Pour insérer un commentaire dans du code} +q "sdom" -{procédez comme suit :}
+
+code [title](Commentaires) [language](sdom)
+{# ceci est un commentaire
+header # ceci est un commentaire
+
+# ceci
+# est 
+# un
+# commentaire}

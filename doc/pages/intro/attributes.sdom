@@ -1,0 +1,68 @@
+h1 "Les attributs"
+
+p {A savoir :}
+ul 
+    li "Un attribut est toujours rattaché à l'élément qui le précéde"
+    li "Un attribut ne peut pas modifier l'indentation"
+    li "Un attribut ne peut posséder qu'une valeur"
+
+h3 "Les attributs"
+
+p {L'ajout d'un attribut à un élément} +q "html" -{se fait de la manière suivante :}
+
+code [title](Ajout d'un attribut) [language](sdom)
+{header [data-header]
+# <header data-header></header>
+
+header [style](background-color: red;)
+# <header style="background-color: red;"></header>}
+
+p {Un attribut est toujours rattaché à l'élément qui le précéde :}
+
+code [title](Ajout d'un attribut) [language](sdom)
+{header 
+    ul
+        li
+[data-header]
+# <header> <ul> <li data-header></li> </ul> </header>}
+
+h3 "Les classes"
+
+p {L'ajout d'une classe à un élément} +q "html" -{se fait de la manière suivante :}
+
+code [title](Ajout d'une classe) [language](sdom)
+{header.one
+# <header class="one"></header>}
+
+p {Il est bien sur possible d'ajouter plusieurs classes à un même élément en les chainant, sans espaces.}
+
+code [title](Ajout de deux classes) [language](sdom)
+{header.one.two
+# <header class="one two"></header>
+
+header .one .two
+# <header class="one"></header>}
+
+h3 "Les valeurs"
+
+p {L'ajout d'une valeur à un élément} +q "html" -{se fait de la manière suivante :}
+
+code [title](Ajout d'une valeur) [language](sdom)
+{header (myvalue)
+# <header></header>}
+
+p {Comme vous pouvez le constater, une valeur seule n'imprime rien sur un élément} +q "html" -{sans attribut, mais ce n'est pas le cas par exemple pour les fonctions}.
+
+code [title](Ajout d'une valeur pour créer une fonction) [language](sdom)
+{myfunction(myvalue)}
+
+p {De plus, une valeur est toujours liée au jeton qui la précéde, une valeur doit donc être placée immédiatemment (sans espacement) derrière le jeton en question.}
+
+code [title](Ajout d'une valeur à un attribut) [language](sdom)
+{header [data-header](myvalue)
+# <header data-header="myvalue"></header>
+
+header [data-header] (myvalue)
+# <header data-header=""></header>
+# l'espace entre l'attribut et la valeur est conssidéré comme un jeton
+# la valeur est donc liée à cet espace et non pas à l'attribut}
