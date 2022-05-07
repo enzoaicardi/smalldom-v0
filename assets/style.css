@@ -127,7 +127,6 @@ body > *{
     font-size: var(--text-small);
 
     border-radius: var(--radius-small);
-    background-color: var(--color-09);
     overflow: hidden;
 }
 
@@ -157,7 +156,9 @@ body > *{
     }
 
     .demo .content{
+        width: 100%;
         padding: var(--gap-medium);
+        background-color: var(--color-09);
     }
 
     .demo p{
@@ -198,9 +199,16 @@ body > *{
     .demo{
         flex-direction: column;
     }
-    .demo > *{width: 100%;}
+    .demo > *{
+        width: 100%;
+    }
     .demo > *:first-child{
-        border-bottom: 4px solid var(--color-03);
+        border-bottom: 2px solid var(--color-03);
+    }
+    .demo > .before > *,
+    .demo > .after > *{
+        padding-top: var(--gap-large);
+        padding-bottom: var(--gap-large);
     }
 }
 
@@ -220,6 +228,10 @@ body > *{
         border-radius: 0;
         margin-left: 0;
         margin-right: 0;
+    }
+    .demo > *:first-child{
+        border: none;
+        margin-bottom: var(--gap-medium);
     }
     .main .desc{
         font-size: var(--text-small);
