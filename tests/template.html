@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smallDom HTML injection test file</title>
+</head>
+<body>
+
+<small-dom debug>
+
+    # here we test all possible -bugs +with chars (value) [attr] http://www.lol.com <html></html> "de de" {sz sz}
+    ul
+        li "je vais au amarillo" [data-ama](true)
+
+    break()
+            a [href](http://www.lol.com) "lien vers lol"
+    
+</small-dom>
+
+<script data-smalldom src="../lib/smallDom.js"></script>
+<script data-smalldom>
+    smallDomReplace('small-dom', {mode: 'wrap', breaks: 1});
+    // domCopy();
+</script>
+</body>
+</html>
+
+
+
+
+    

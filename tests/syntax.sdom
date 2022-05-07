@@ -1,0 +1,19 @@
+
+
+body
+
+    # here we test all possible -bugs +with chars (value) [attr] http://www.lol.com <html></html> "de de" {sz sz}
+    name-separated 
+
+        +="string un deux trois [http] (value) -quatre +cinq {six} \" \c " plus
+
+        {string un deux trois [http] (value) -quatre +cinq" six " "c aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaa [href]
+        multi-l
+        \}ine} plus
+
+    div-with-class.this-is_a-class.chained "string" element.with-class +element
+
+    function(with, some, -inside -attr)
+
+    div [http-order](http://ww.com)
+    

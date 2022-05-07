@@ -1,0 +1,216 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    --size-base: 1.2px;
+    --color-60p: #F6C057;
+    --color-30p: var(--color-60p);
+    --code-text: var(--color-03);
+
+    background-color: var(--color-1);
+    color: var(--color-00);
+}
+
+body > *{
+    width: 100%;
+    max-width: var(--minmax-large);
+}
+
+/* components */
+
+[data-core-button]{
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-small);
+
+    height: var(--size-small);
+    width: max-content;
+    padding: 0 var(--gap-medium);
+    border-radius: calc(var(--size-small) / 2);
+
+    color: var(--color-1);
+    --color-link: var(--color-1);
+    font-weight: var(--font-medium);
+    background-color: var(--color-60p);
+}
+
+h2{
+    margin-top: var(--gap-mega);
+    margin-bottom: var(--gap-mega);
+
+    font-size: var(--title-h2);
+    font-weight: var(--font-bold);
+}
+
+    h2 > span{
+        color: var(--color-60p);
+    }
+
+/* styles */
+
+/* main header */
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: var(--size-medium);
+    padding: 0 var(--gap-large);
+}
+
+    .header > div{
+        display: flex;
+        align-items: center;
+        gap: var(--gap-medium);
+    }
+
+        .header > div > * { flex: none; }
+
+    .header .logo{
+        height: var(--size-normal);
+    }
+
+    .header .git{
+        height: var(--size-small);
+        width: var(--size-small);
+        fill: var(--color-60p);
+    }
+
+    .header h1{
+        font-size: var(--title-h4);
+        color: var(--color-60p);
+        font-weight: var(--font-medium);
+    }
+
+
+/* main main */
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-large);
+
+    margin-bottom: var(--gap-mega);
+}
+
+    .main > *{
+        margin-left: calc(var(--gap-large) * 2);
+        margin-right: calc(var(--gap-large) * 2);
+    }
+
+    .main [data-core-button]{
+        align-self: center;
+    }
+
+    .main .desc{
+        align-self: center;
+        text-align: center;
+        font-weight: var(--font-medium);
+
+        max-width: var(--minmax-medium);
+        margin-top: var(--gap-large);
+    }
+
+.demo{
+    width: auto;
+    height: max-content;
+    min-height: var(--size-normal);
+    margin-left: var(--gap-large);
+    margin-right: var(--gap-large);
+
+    display: flex;
+    align-items: stretch;
+
+    font-family: var(--font-mono);
+
+    border-radius: var(--radius-small);
+    background-color: var(--color-09);
+    overflow: hidden;
+}
+
+    .demo > *{
+        flex: none;
+        width: 50%;
+
+        display: flex;
+
+        overflow: hidden;
+    }
+
+        .demo > * > *{
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-small);
+        }
+
+    .demo .num{
+        min-width: var(--size-small);
+        width: max-content;
+        padding: var(--gap-medium) var(--gap-normal);
+
+        color: var(--color-1);
+        text-align: right;
+        background-color: var(--color-03);
+    }
+
+    .demo .content{
+        padding: var(--gap-medium);
+    }
+
+    .demo p{
+        white-space: pre;
+    }
+
+/* media */
+
+@media screen and (max-width: 1080px) {
+    body{
+        --gap-base: 1px;
+    }
+    .demo{
+        font-size: var(--text-small);
+    }
+}
+
+@media screen and (max-width: 980px) {
+    body{
+        --gap-base: 0.8px;
+        --title-h2: 5rem;
+    }
+    .demo{
+        flex-direction: column;
+    }
+    .demo > *{width: 100%;}
+    .demo > *:first-child{
+        border-bottom: 4px solid var(--color-03);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        --size-base: 1px;
+        --gap-base: 0.6px;
+        --title-h4: 1.6rem;
+        --title-h2: 4rem;
+    }
+    .main > *{
+        margin-left: var(--gap-large);
+        margin-right: var(--gap-large);
+    }
+    .demo{
+        border-radius: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .main .desc{
+        font-size: var(--text-small);
+        font-weight: var(--font-regular);
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .header h1{display: none;}
+}
