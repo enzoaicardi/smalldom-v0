@@ -1,6 +1,6 @@
 h1 "Installation"
 
-p {Pour utiliser smallDom commencer par télécharger le fichier minifié } +a "sdom.js" [href](../lib/sdom.js) [download]
+p {Pour utiliser smallDom commencez par télécharger le fichier minifié } +a "sdom.js" [href](../lib/sdom.js) [download]
 
 h2 "Les fonctions"
 
@@ -15,13 +15,13 @@ ul
 
 h4 "Fonctions raccourcies"
 
-p {Il est cependant dans la majorité des cas plus utile d'utiliser les fonctions raccourcies suivantes :}
+p {Il est cependant dans la majorité des cas, il sera plus utile d'utiliser les fonctions raccourcies suivantes :}
 
 ul
     li +q "smallDomTranspile(code, options)" -"convertit le code sdom en code HTML"
-    li +q "smallDomReplace(selector, options)" -"convertit le code sdom en code HTML"
+    li +q "smallDomReplace(selector, options)" -"convertit le code sdom en code HTML et l'applique à un ou plusieurs éléments"
     ol
-        li +q "selector" -"correspond à" +q "querySelectorAll(selector)" q"'all'" -"est équivalent à" +q "'small-dom'";
+        li +q "selector" -"correspond à" +q "querySelectorAll(selector)" -":" +q"'all'" -"est équivalent à" +q "'small-dom'";
 
 p {Les differentes options disponibles sont :}
 
@@ -46,7 +46,7 @@ h4 "Fonctions annexes"
 p {Vous pourrez aussi utiliser d'autres fonctions annexes :}
 
 ul
-    li +q "domCopy(selector)" -"copie outerHTML d'un element ou de tout le document (utile pour effectuer un copier coller sur le document final par exemple)"
+    li +q "domCopy(selector)" -"copie dans le presse-papier le outerHTML d'un element ou de tout le document (si aucun argument)"
     li +q "escapeHTML(str)" -"echape les caractères HTML d'une chaine"
 
 h2 "Utilisation"
@@ -87,7 +87,7 @@ p {Pour importer le code grace à l'API} +q "fetch" -{vous pouvez procéder comm
 
 code [title](fetch) [language](js)
 "fetch(<.sdom file url>)
-.then(function(response){return response.text();})
+.then(function(response){ return response.text(); })
 .then(function(code){
     var HTML = smallDomTranspile(code, {options...});
     // do something
