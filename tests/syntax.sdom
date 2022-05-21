@@ -2,12 +2,18 @@
 
 body
 
+    $myvar +div +a +nav "love" {ded e} [dede]
+
+    header
+        clone(2)
+        div ${myvar}
+
     # here we test all possible -bugs +with chars (value) [attr] http://www.lol.com <html></html> "de de" {sz sz}
     name-separated 
 
-        +="string un deux trois [http] (value) -quatre +cinq {six} \" \c " plus
+        +="string un deux ${myvar} trois [http] (value) -quatre +cinq {six} \" \c " plus
 
-        {string un deux trois [http] (value) -quatre +cinq" six " "c aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaa [href]
+        {string un deux trois [http] (value) -quatre +cinq" six " "c aaaaaaaaaaaa ${myvar\}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaa [href]
         multi-l
         \}ine} plus
 
@@ -15,5 +21,4 @@ body
 
     function(with, some, -inside -attr)
 
-    div [http-order](http://ww.com)
-    
+    div [http-order](http://ww.com) (this is my \(value\) de )
